@@ -1,5 +1,5 @@
 title = 배열 포인터 동적할당 메모리
-tags = 프로그래밍
+tags = 프로그래밍, 굉장히, 많은 ,태그
 date = 2020-12-5
 show = true 
 ##blogen##

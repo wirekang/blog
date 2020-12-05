@@ -1,16 +1,20 @@
 {{ define "body" }}
 {{ if .IsFiltered }}
-    <h3>Tag Filter: </h3>
-    {{ range .FilteredTags }}
-        <h4><a href="tag{{ .ID }}.html">{{ .Name }}</a></h4>
-    {{ end }}
+    <p class="filter">{ {{ .FilteredTag.Name }} } 태그가 들어간 글</p>
 {{ else }}
-    <h3>모든 글</h3>
+    <p class="filter">모든 글</p>
 {{ end }}
 
 <div class ="list">
     {{ range .Posts }}
-        <a class="nodeco" href="{{ .ID }}.html">{{ .Title }} ({{ .Time.Format "2006-1-2" }})</a><br/>
+        <a class="nodeco" href="{{ .ID }}.html">
+            <span class="title">
+                {{ .Title }}
+            </span>
+            <span class="date">
+                {{ .Time.Format "2006-1-2" }}
+            </span>
+        </a></br>
     {{ end }}
 </div>
 {{ end }}

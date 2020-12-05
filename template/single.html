@@ -1,10 +1,14 @@
 {{ define "body" }}
 <div class="single">
-    <h1><a href="{{ .Post.ID }}.html">{{ .Post.Title }}</a></h1>
-    <h3>Tags</h3>
-    {{ range .Post.Tags }}
-        <a href ="tag{{ .ID }}.html">{{ .Name }}</a></br>
-    {{ end }}
+    <div class="title">
+        <a class="nodeco" href="{{ .Post.ID }}.html">{{ .Post.Title }}</a>
+    </div>
+    <div class="tag">
+        {{ range .Post.Tags }}
+            <a class="nodeco" href ="tag{{ .ID }}.html">#{{ .Name }}</a>
+        {{ end }}
+    </div>
+
     {{ .HTML }}
 
     <h3>Related Posts</h3>

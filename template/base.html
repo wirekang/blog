@@ -8,7 +8,7 @@
     <title>{{ .Title }}</title>
 </head>
 <body>
-    <div class="title">
+    <div class="btitle">
         <a class="nodeco" href="/">{{ .Title }}</a>
     </div>
 
@@ -29,5 +29,8 @@
     {{ end }}
 
     {{ template "body" .}}
+    <div class="footer">
+        <a href="https://github.com/wirekang/blogen">Powered by blogen</p>
+    </div>
 </body>
 </html>
