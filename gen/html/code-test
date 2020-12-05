@@ -1,0 +1,26 @@
+<h1>C</h1>
+
+<pre><code class="language-c">int main(void){
+    printf(&quot;Hello world&quot;);
+    return 0;
+}
+</code></pre>
+
+<h1>Golang</h1>
+
+<pre><code class="language-go">func main(){
+    fmt.Println(&quot;Hello world&quot;)
+    os.Exit(0)
+}
+</code></pre>
+
+<h1>Javascript</h1>
+
+<pre><code class="language-javascript">const Title = () =&gt; {
+    return (
+        &lt;div className=&quot;title&quot; &gt;
+
+        &lt;/div&gt;
+    )
+}
+</code></pre>
