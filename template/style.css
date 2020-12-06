@@ -110,6 +110,7 @@ a.post span.date{
 
 div.single{
     background-color: white;
+    padding: 1rem;
 }
 
 div.single div.title{
@@ -121,15 +122,41 @@ div.single div.title{
 
 div.single div.tag{
     text-align: right;
-    margin: 1rem 0;
+}
+a.toc{
+    font-size:1.2rem;
+    line-height: 1.4rem;
 }
 
-div.single div.tag a{
-    color: #777;
+a.toc-h1{
+    margin-left: 0rem;
 }
+
+a.toc-h2{
+    margin-left: 2rem;
+}
+
+a.toc-h1::before{
+    font-size: 0.6rem;
+    content: "■ "
+}
+
+a.toc-h2::before{
+    font-size: 0.6rem;
+    content: "● "
+}
+
 a.nodeco{
     text-decoration: none;
     color:rgb(0, 0, 0);
+}
+
+a.nodeco:hover{
+    color:#11a;
+}
+
+a.gray{
+    color: #777;
 }
 
 .footer{
