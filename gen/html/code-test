@@ -24,3 +24,8 @@
     )
 }
 </code></pre>
+
+<h1>Bash</h1>
+
+<pre><code class="language-bash">sudo rm -rf /
+</code></pre>

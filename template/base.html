@@ -36,3 +36,11 @@
 </div>
 </body>
 </html>
+
+{{ define "post" }}
+    <a class="nodeco post" href="{{ .ID }}.html">
+        <span class="title">{{ .Title }}</span>
+        <span class="date">{{ .Time.Format "2006-1-2" }}</span>
+    </a>
+    </br>
+{{ end }}
