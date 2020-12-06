@@ -146,6 +146,10 @@ a.toc-h2::before{
     content: "● "
 }
 
+code {
+    font-family: 'D2Coding';
+}
+
 a.nodeco{
     text-decoration: none;
     color:rgb(0, 0, 0);
