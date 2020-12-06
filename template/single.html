@@ -1,4 +1,7 @@
 {{ define "body" }}
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
 <script>
     function doTOC(){
         const post = document.getElementById("post")
@@ -20,6 +23,7 @@
         toc.innerHTML = tocInner
     }
     
+    hljs.initHighlightingOnLoad();
     document.addEventListener("DOMContentLoaded",doTOC)
 </script>
 <div class="single">
