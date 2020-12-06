@@ -10,8 +10,9 @@
     </div>
 
     {{ .HTML }}
-
-    <h3>Related Posts</h3>
+</div>
+<div class="related">
+    <p>관련된 글</p>
     {{ range .RelatedPosts }}
         <a href="{{ .ID }}.html">{{ .Title }}</a> </br>
     {{ end }}
