@@ -1,28 +1,6 @@
 {{ define "style" }}
 
-@font-face {
- font-family: 'NanumBarunGothic';
- font-style: normal;
- font-weight: 400;
- src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
- src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
-}
-
-@font-face {
- font-family: 'NanumBarunGothic';
- font-style: normal;
- font-weight: 700;
- src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
- src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
-}
-
-@font-face {
- font-family: 'NanumBarunGothic';
- font-style: normal;
- font-weight: 300;
- src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
- src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
-}
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 @font-face {
     font-family: 'D2Coding';
@@ -32,8 +10,8 @@
 }
 
 html{
-    font-size: 16px;
-    font-family: 'NanumBarunGothic', sans-serif;
+    font-size: 18px;
+    font-family: 'Nanum Gothic', sans-serif;
     width:100%;
     height:100%;
     margin: 0;
@@ -46,9 +24,9 @@ body{
     width:100%;
     height:97%;
     max-width: 900px;
-    padding:0.5rem;
+    padding: 10px;
     margin: auto 0;
-    background-color: #f7f7f5;
+    background-color: #fdfdfb;
 }
 
 #container{
@@ -60,24 +38,26 @@ body{
 }
 
 div.btitle{
+    font-family: 'D2Coding';
     {{ if .InList }}
-    font-size: 2.5rem;
+    font-size: 35px;
+    padding: 8px 0;
     {{ else }}
-    font-size: 1.5rem;
+    font-size: 20px;
+    padding-top: 8px;
     {{ end }}
     text-align:center;
-    padding-top: 0.3rem 0;
 }
 
 div.description{
-    font-size: 1rem;
+    font-size: 16px;
     text-align:center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 12px;
+    padding-bottom: 16px;
 }
 
 div.tags{
-    font-size: 1rem;
+    font-size: 16px;
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -85,19 +65,19 @@ div.tags{
 
 div.tags a{
     border: 1px solid #aaa;
-    padding: 0.2rem;
+    padding: 2px;
 }
 
 p.filter{
-    font-size: 1.2rem;
+    font-size: 20px;
     text-align: center;
 }
 
 a.post{
     border-top: 1px solid #ccc;
     display:block;
-    padding: 0.1rem;
-    font-size: 1.1rem;
+    padding: 2px;
+    font-size: 17px;
 }
 
 a.post span.title{
@@ -109,45 +89,69 @@ a.post span.date{
 }
 
 div.single{
-    background-color: white;
-    padding: 1rem;
+    padding: 18px;
 }
 
 div.single div.title{
-    font-size: 2rem;
+    font-size: 26px;
     font-weight: bold;
     text-align:center;
-    padding-top: 1rem;
+    padding-bottom: 6px;
 }
 
 div.single div.tag{
     text-align: right;
 }
+
+div#toc {
+    padding-bottom: 40px;
+}
+
 a.toc{
-    font-size:1.2rem;
-    line-height: 1.4rem;
+    font-size:18px;
+    line-height: 25px;
 }
 
 a.toc-h1{
-    margin-left: 0rem;
+    margin-left: 0;
 }
 
 a.toc-h2{
-    margin-left: 2rem;
+    margin-left: 20px;
 }
 
 a.toc-h1::before{
-    font-size: 0.6rem;
+    font-size: 10px;
     content: "■ "
 }
 
 a.toc-h2::before{
-    font-size: 0.6rem;
+    font-size: 9px;
     content: "● "
 }
 
-div#post{
-    font-size: 1.2rem;
+div#post {
+    word-break: keep-all;
+    line-height: 150%;
+    color: #333333;
+}
+
+div#post h1{
+    font-size: 1.8em;
+}
+
+div#post h2{
+    font-size: 1.5em;
+}
+
+div#post h3{
+    font-size: 1.2em;
+}
+
+div#post h1,
+div#post h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #dadcdf;
 }
 
 code {
@@ -169,13 +173,13 @@ a.gray{
 
 .footer{
     margin-top: auto;
-    padding-top:1rem;
-    padding-bottom: 0.3rem;
+    padding-top:20px;
+    padding-bottom: 5px;
     justify-self: flex-end;
     display:flex;
     flex-direction: row;
     justify-content: center;
-    font-size: 0.6rem;
+    font-size: 10px;
 
 }
 

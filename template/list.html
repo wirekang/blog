@@ -1,7 +1,7 @@
 {{ define "body" }}
 <div class ="list">
 {{ if .IsFiltered }}
-    <p class="filter">{ {{ .FilteredTag.Name }} } 태그가 들어간 글</p>
+    <p class="filter"><b> {{ .FilteredTag.Name }} </b> 태그가 포함된 글</p>
 {{ else }}
     <p class="filter">모든 글</p>
 {{ end }}

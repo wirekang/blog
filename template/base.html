@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ .Description }}">
-    <meta name="og:image" content="logo.png">
-    <meta name="og:local" content="ko_KR">
+    <meta property="og:site_name" content="wirekang 블로그">
+    <meta property="og:description" content="{{ .Description }}">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="{{ .Addr }}/logo.png">
+    <meta property="og:local" content="ko_KR">
     {{ if .InSingle }}
         <title>{{ .Post.Title }}</title>
-        <meta name="og:title" content="{{ .Post.Title }}">
-        <meta name="og:url" content="{{ .Addr }}/{{ .Post.ID }}.html">
+        <meta property="og:title" content="{{ .Post.Title }}">
+        <meta property="og:url" content="{{ .Addr }}/{{ .Post.ID }}.html">
     {{ else }}
         <title>{{ .Title }}</title>
-        <meta name="og:title" content="{{ .Title }}">
-        <meta name="og:url" content="{{ .Addr }}">
+        <meta property="og:title" content="{{ .Title }}">
+        <meta property="og:url" content="{{ .Addr }}">
     {{ end }}
-    <meta name="og:site_name" content="wirekang 블로그">
-    <meta name="og:description" content="{{ .Description }}">
 
     <style>{{ template "style" . }}</style>
 </head>
 <body>
+<img src="{{ .Addr }}/logo.png" alt="logo" style="visibility: hidden; width:0; height:0;"/>
 <div id="container">
     <div class="btitle">
         <a class="nodeco" href="/">{{ .Title }}</a>
