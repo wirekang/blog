@@ -17,8 +17,8 @@ show=true
 
 # 정리 
 
-블로그 주소: (wirekang.github.io)[https://wirekang.github.io]
+블로그 주소: [wirekang.github.io](https://wirekang.github.io)
 
-블로그 소스 코드: (github.com/wirekang/blog)[https://github.com/wirekang/blog]
+블로그 소스 코드: [github.com/wirekang/blog](https://github.com/wirekang/blog)
 
-정적 생성기 소스 코드: (github.com/wirekang/blogen)[https://github.com/wirekang/blogen]
+정적 생성기 소스 코드: [github.com/wirekang/blogen](https://github.com/wirekang/blogen)
