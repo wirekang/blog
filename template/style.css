@@ -146,6 +146,10 @@ a.toc-h2::before{
     content: "● "
 }
 
+div#post{
+    font-size: 1.2rem;
+}
+
 code {
     font-family: 'D2Coding';
 }
