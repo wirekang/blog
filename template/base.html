@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ .Description }}">
+    <meta name="og:image" content="logo.png">
+    <meta name="og:local" content="ko_KR">
+    {{ if .InSingle }}
+        <title>{{ .Post.Title }}</title>
+        <meta name="og:title" content="{{ .Post.Title }}">
+        <meta name="og:url" content="{{ .Addr }}/{{ .Post.ID }}.html">
+    {{ else }}
+        <title>{{ .Title }}</title>
+        <meta name="og:title" content="{{ .Title }}">
+        <meta name="og:url" content="{{ .Addr }}">
+    {{ end }}
+    <meta name="og:site_name" content="wirekang 블로그">
+    <meta name="og:description" content="{{ .Description }}">
+
     <style>{{ template "style" . }}</style>
-    <title>{{ .Title }}</title>
 </head>
 <body>
 <div id="container">
