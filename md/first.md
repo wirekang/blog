@@ -1,4 +1,4 @@
-title=삽질 끝에 수제 블로그 개발
+title=수제 블로그 개발
 tags=블로그, 개발
 date=2020-12-6
 show=true
