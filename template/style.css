@@ -170,6 +170,8 @@ div.comment-l1{
 
 div.comment-l2{
     margin: 0.2em;
+    max-height: 8em;
+    overflow-y:auto;
 }
 
 span.comment-name{
@@ -226,6 +228,13 @@ textarea#comment-text{
 input#comment-submit{
     min-width:4em;
     flex:1;
+}
+
+div#alert{
+    background-color: lightgoldenrodyellow;
+    text-align: center;
+    font-weight: bold;
+    color:darkred;
 }
 
 a.nodeco{

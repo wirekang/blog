@@ -8,6 +8,7 @@
   const httpRequest = new XMLHttpRequest();
   let commentDiv;
   let commentName,commentPass,commentText;
+  let alertDiv;
   
   function initComment(){
     commentDiv=document.getElementById('comment-list');
@@ -16,6 +17,7 @@
     commentPass=document.getElementById('comment-pass')
     commentPass.value=window.localStorage.getItem('pass')
     commentText=document.getElementById('comment-text')
+    alertDiv = document.getElementById('alert')
     document.getElementById('comment-submit').addEventListener(
       'click',(e)=>{
         onSubmit();
@@ -23,14 +25,13 @@
     )
     httpRequest.onreadystatechange = function (e){
       if(httpRequest.readyState === XMLHttpRequest.DONE){
-        if(httpRequest.status===400){
-          alert("삭제 실패")
+        const msg = JSON.parse(httpRequest.responseText).msg;
+        if(msg){
+          alert(msg)
+          selectComment();
+          return;
         }
         if( httpRequest.status===200){
-          if (httpRequest.responseText==='.'){
-            selectComment();
-            return;
-          }
           let arr = JSON.parse(httpRequest.responseText);
           arr = arr.sort((a,b)=>{
             return a.id - b.id;
@@ -95,6 +96,19 @@
     commentText.value='';
   }
 
+  let timeouts = [];
+
+  function alert(str){
+    alertDiv.innerHTML=str;
+    timeouts.forEach((v)=>{
+      clearTimeout(v)
+    })
+    timeouts = []
+    timeouts.push(setTimeout(()=>{
+      alertDiv.innerHTML=''
+    },3000))
+  }
+
   function doTOC(){
     const post = document.getElementById("post")
     const toc=document.getElementById("toc")
@@ -145,6 +159,10 @@
         <div id="comment-add-l2">
           <textarea id='comment-text'></textarea>
           <input type='button' id='comment-submit' value='등록'/>
+        </div>
+        <div id="commnet-add-l3">
+          <div id="alert">
+          </div>
         </div>
       </div>
     </div>
