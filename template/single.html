@@ -3,7 +3,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
 <script>
   const aid = {{ .Post.ID }};
-  const addr="54.180.213.124";
+  const addr="comment.wirekang.com";
   const slash='/';
   const httpRequest = new XMLHttpRequest();
   let commentDiv;
@@ -57,14 +57,14 @@
   }
 
   function selectComment(){
-    const url=`http:${slash}/${addr}/api/comments?aid=${aid}`
+    const url=`https:${slash}/${addr}/api/comments?aid=${aid}`
     httpRequest.open('GET',url);
     httpRequest.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     httpRequest.send();
   }
 
   function insertComment(){
-    const url=`http:${slash}/${addr}/api/comments`
+    const url=`https:${slash}/${addr}/api/comments`
     httpRequest.open('POST',url);
     httpRequest.setRequestHeader("Content-Type","application/json");
       const b = JSON.stringify({
@@ -80,7 +80,7 @@
   }
 
   function deleteComment(id,pass){
-    const url=`http:/${slash}/${addr}/api/comments?id=${id}&passwd=${pass}`
+    const url=`https:/${slash}/${addr}/api/comments?id=${id}&passwd=${pass}`
     httpRequest.open('DELETE',url);
     httpRequest.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     httpRequest.send();
