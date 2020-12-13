@@ -2,28 +2,122 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/a11y-dark.min.css" integrity="sha512-1rzCaYWsg3l6uKvGbUT6rAZFOcVn0zeXAFlZudsnj8k2xcrU5asL8jfJUEijV9GPYMh0GnPToeCTJj6RXQnA8g==" crossorigin="anonymous" />
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
 <script>
-    function doTOC(){
-        const post = document.getElementById("post")
-        const toc=document.getElementById("toc")
-        const headings = Array.from(post.getElementsByTagName("*")).filter( 
-            e=> (e.tagName=="H1" || e.tagName=="H2")
-        )
-        
-        let tocInner="<h1 class='toc'>목차</h1>"
-        let index = 0
-        headings.forEach(h => {
-            h.id=index++
-            tocInner+=`<a class="nodeco toc toc-${h.tagName.toLowerCase()}" href="#${h.id}">${h.innerHTML}</a></br>`
-            h.innerHTML=`<a class="nodeco" href="#toc">${h.innerHTML}</a>`
-            
+  const aid = {{ .Post.ID }};
+  const addr="54.180.213.124";
+  const slash='/';
+  const httpRequest = new XMLHttpRequest();
+  let commentDiv;
+  let commentName,commentPass,commentText;
+  
+  function initComment(){
+    commentDiv=document.getElementById('comment-list');
+    commentName=document.getElementById('comment-name')
+    commentName.value=window.localStorage.getItem('name')
+    commentPass=document.getElementById('comment-pass')
+    commentPass.value=window.localStorage.getItem('pass')
+    commentText=document.getElementById('comment-text')
+    document.getElementById('comment-submit').addEventListener(
+      'click',(e)=>{
+        onSubmit();
+      }
+    )
+    httpRequest.onreadystatechange = function (e){
+      if(httpRequest.readyState === XMLHttpRequest.DONE){
+        if(httpRequest.status===400){
+          alert("삭제 실패")
+        }
+        if( httpRequest.status===200){
+        if (httpRequest.responseText==='.'){
+          selectComment();
+          return;
+        }
+        let arr = JSON.parse(httpRequest.responseText);
+        arr = arr.sort((a,b)=>{
+          return a.id - b.id;
         })
-        console.log(headings)
-        console.log(tocInner)
-        toc.innerHTML = tocInner
+        commentDiv.innerHTML="";
+        arr.forEach(cmt=>{
+          const date = new Date(cmt.time);
+          const time=
+          `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
+          commentDiv.innerHTML+=
+          `<div class='comment-block'>
+          <span class='comment-name'>${cmt.name}</span>
+          <span class='comment-time'>${time}</span>
+          <span class='comment-text'>${cmt.text}</span>
+          <a class="nodeco comment-delete" onclick='onDelete(${cmt.id})'>삭제</a>
+          </div>`;
+        })
+      }
     }
+  }
+  }
+
+  function selectComment(){
+    const url=`http:${slash}/${addr}/api/comments?aid=${aid}`
+    httpRequest.open('GET',url);
+    httpRequest.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    httpRequest.send();
+  }
+
+  function insertComment(){
+    const url=`http:${slash}/${addr}/api/comments`
+    httpRequest.open('POST',url);
+    httpRequest.setRequestHeader("Content-Type","application/json");
+      const b = JSON.stringify({
+      aid,
+      name: commentName.value,
+      passwd: commentPass.value,
+      text:commentText.value,
+    })
+    console.log(b);
+    httpRequest.send(b);
+    window.localStorage['name']=commentName.value;
+    window.localStorage['pass']=commentPass.value;
+  }
+
+  function deleteComment(id,pass){
+    const url=`http:/${slash}/${addr}/api/comments?id=${id}&passwd=${pass}`
+    httpRequest.open('DELETE',url);
+    httpRequest.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    httpRequest.send();
+  }
+
+  function onDelete(id){
+    let pass=prompt("댓글 작성 시 사용했던 비밀번호를 입력하세요.",localStorage['pass']);
+    deleteComment(id,pass);
+  }
+
+  function onSubmit(){
+    insertComment();
+    commentText.value='';
+  }
+
+  function doTOC(){
+    const post = document.getElementById("post")
+    const toc=document.getElementById("toc")
+    const headings = Array.from(post.getElementsByTagName("*")).filter( 
+      e=> (e.tagName=="H1" || e.tagName=="H2")
+    )
     
-    hljs.initHighlightingOnLoad();
-    document.addEventListener("DOMContentLoaded",doTOC)
+    let tocInner="<h1 class='toc'>목차</h1>"
+    let index = 0
+    headings.forEach(h => {
+      h.id=index++
+      tocInner+=`<a class="nodeco toc toc-${h.tagName.toLowerCase()}" href="#${h.id}">${h.innerHTML}</a></br>`
+      h.innerHTML=`<a class="nodeco" href="#toc">${h.innerHTML}</a>`
+    })
+    console.log(headings)
+    console.log(tocInner)
+    toc.innerHTML = tocInner
+  }
+
+  hljs.initHighlightingOnLoad();
+  document.addEventListener("DOMContentLoaded",()=>{
+    doTOC();
+    initComment();
+    selectComment();
+  })
 </script>
 <div class="single">
     <div class="title">
@@ -37,6 +131,16 @@
     <div id="post">
         <div id="toc"></div>
         {{ .HTML }}
+    </div>
+    <div id="comment">
+      <p class="filter">댓글</p>
+      <div id="comment-list"></div>
+      <div id="comment-add">
+        <input type='text' id='comment-name' placeholder='이름'/>
+        <input type='text' id='comment-pass' placeholder="비밀번호"/>
+        <textarea id='comment-text'></textarea>
+        <input type='button' id='comment-submit' value='등록'/>
+      </div>
     </div>
 </div>
 <div class="related">
