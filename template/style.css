@@ -90,6 +90,8 @@ a.post span.date{
 
 div.single{
     padding: 18px;
+    word-break: keep-all;
+    color: #333333;
 }
 
 div.single div.title{
@@ -131,9 +133,7 @@ a.toc-h2::before{
 }
 
 div#post {
-    word-break: keep-all;
     line-height: 150%;
-    color: #333333;
 }
 
 div#post h1{
@@ -156,6 +156,76 @@ div#post h2 {
 
 code {
     font-family: 'D2Coding';
+}
+
+div.comment-block{
+    border: 1px solid #ccc;
+    display:flex;
+    flex-direction:column;
+}
+
+div.comment-l1{
+    margin: 0.2em;
+}
+
+div.comment-l2{
+    margin: 0.2em;
+}
+
+span.comment-name{
+    font-weight: bold;
+    float:left;
+}
+
+span.comment-time{
+    font-size: 0.8em;
+    float:right;
+}
+
+span.comment-text{
+    font-size: 0.9em;
+}
+
+a.comment-delete{
+    color:#666 !important;
+    float:right;
+}
+
+div#comment-add{
+    display:flex;
+    flex-direction: column;
+}
+
+div#comment-add-l1{
+    display:flex;
+    flex-direction: row;
+}
+
+input#comment-name{
+    max-width:15em;
+    flex:3;
+}
+input#comment-pass{
+    max-width:8em;
+    flex:1;
+    color:#999;
+    font-style: italic;
+}
+
+div#comment-add-l2{
+    display:flex;
+    flex-direction: row;
+}
+
+textarea#comment-text{
+    flex:20;
+    resize: none;
+    height:6em;
+}
+
+input#comment-submit{
+    min-width:4em;
+    flex:1;
 }
 
 a.nodeco{

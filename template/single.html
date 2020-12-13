@@ -27,30 +27,32 @@
           alert("삭제 실패")
         }
         if( httpRequest.status===200){
-        if (httpRequest.responseText==='.'){
-          selectComment();
-          return;
+          if (httpRequest.responseText==='.'){
+            selectComment();
+            return;
+          }
+          let arr = JSON.parse(httpRequest.responseText);
+          arr = arr.sort((a,b)=>{
+            return a.id - b.id;
+          })
+          commentDiv.innerHTML="";
+          arr.forEach(cmt=>{
+            const date = new Date(cmt.time);
+            const time=
+            `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
+            commentDiv.innerHTML+=
+            `<div class='comment-block'>
+            <div class='comment-l1'>
+            <span class='comment-name'>${cmt.name}</span>
+            <span class='comment-time'>${time}</span>
+            </div> <div class='comment-l2'>
+            <span class='comment-text'>${cmt.text}</span>
+            <a class="nodeco comment-delete" onclick='onDelete(${cmt.id})'>삭제</a>
+            </div></div>`;
+          })
         }
-        let arr = JSON.parse(httpRequest.responseText);
-        arr = arr.sort((a,b)=>{
-          return a.id - b.id;
-        })
-        commentDiv.innerHTML="";
-        arr.forEach(cmt=>{
-          const date = new Date(cmt.time);
-          const time=
-          `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
-          commentDiv.innerHTML+=
-          `<div class='comment-block'>
-          <span class='comment-name'>${cmt.name}</span>
-          <span class='comment-time'>${time}</span>
-          <span class='comment-text'>${cmt.text}</span>
-          <a class="nodeco comment-delete" onclick='onDelete(${cmt.id})'>삭제</a>
-          </div>`;
-        })
       }
     }
-  }
   }
 
   function selectComment(){
@@ -136,10 +138,14 @@
       <p class="filter">댓글</p>
       <div id="comment-list"></div>
       <div id="comment-add">
-        <input type='text' id='comment-name' placeholder='이름'/>
-        <input type='text' id='comment-pass' placeholder="비밀번호"/>
-        <textarea id='comment-text'></textarea>
-        <input type='button' id='comment-submit' value='등록'/>
+        <div id="comment-add-l1">
+          <input type='text' id='comment-name' placeholder='이름'/>
+          <input type='text' id='comment-pass' placeholder="비밀번호"/>
+        </div>
+        <div id="comment-add-l2">
+          <textarea id='comment-text'></textarea>
+          <input type='button' id='comment-submit' value='등록'/>
+        </div>
       </div>
     </div>
 </div>
