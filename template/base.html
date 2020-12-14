@@ -34,16 +34,17 @@
 <body>
 <img src="{{ .Addr }}/logo.png" alt="logo" style="visibility: hidden; width:0; height:0;"/>
 <div id="container">
-    <div class="btitle">
+    <div id="title">
         <a class="nodeco" href="/">{{ .Title }}</a>
     </div>
 
     {{ if .InList }}
-    <div class="description">
+    <div id="description">
         {{ .Description }}
     </div>
+    <a id="link-github" class="nodeco" href="https://github.com/wirekang">GitHub</a>
 
-        <div class="tags">
+        <div id="tags">
             {{ range .Tags }}
                 <a class = "nodeco" href="tag{{ .ID }}.html">
                     <span class="name">
@@ -55,7 +56,7 @@
     {{ end }}
 
     {{ template "body" .}}
-    <div class="footer">
+    <div id="footer">
         <a href="https://github.com/wirekang/blogen">Powered by blogen</a>
     </div>
 </div>
@@ -63,9 +64,8 @@
 </html>
 
 {{ define "post" }}
-    <a class="nodeco post" href="{{ .ID }}.html">
+    <div class="post-list" onclick="location.href='{{ .ID }}.html'">
         <span class="title">{{ .Title }}</span>
-        <span class="date">{{ .Time.Format "2006-1-2" }}</span>
-    </a>
-    </br>
+        <span class="date">{{ .Time.Format "2006-01-02" }}</span>
+    </div>
 {{ end }}

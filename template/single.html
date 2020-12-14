@@ -48,7 +48,7 @@
             <span class='comment-time'>${time}</span>
             </div> <div class='comment-l2'>
             <span class='comment-text'>${cmt.text}</span>
-            <a class="nodeco comment-delete" onclick='onDelete(${cmt.id})'>삭제</a>
+            <a class="comment-delete nodeco" onclick='onDelete(${cmt.id})'>삭제</a>
             </div></div>`;
           })
         }
@@ -120,7 +120,7 @@
     let index = 0
     headings.forEach(h => {
       h.id=index++
-      tocInner+=`<a class="nodeco toc toc-${h.tagName.toLowerCase()}" href="#${h.id}">${h.innerHTML}</a></br>`
+      tocInner+=`<a class="toc toc-${h.tagName.toLowerCase()} nodeco" href="#${h.id}">${h.innerHTML}</a></br>`
       h.innerHTML=`<a class="nodeco" href="#toc">${h.innerHTML}</a>`
     })
     console.log(headings)
@@ -135,14 +135,15 @@
     selectComment();
   })
 </script>
-<div class="single">
-    <div class="title">
+<div id="single">
+    <div id="title">
         <a class="nodeco" href="{{ .Post.ID }}.html">{{ .Post.Title }}</a>
     </div>
-    <div class="tag">
+    <div id="under">
         {{ range .Post.Tags }}
-            <a class="nodeco gray" href ="tag{{ .ID }}.html">#{{ .Name }}</a>
+            <a class="tag nodeco" href ="tag{{ .ID }}.html">#{{ .Name }}</a>
         {{ end }}
+        <p id="date">{{ .Post.Time.Format "2006-01-02" }}</p>
     </div>
     <div id="post">
         <div id="toc"></div>
