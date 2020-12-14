@@ -232,8 +232,7 @@ input#comment-name{
 input#comment-pass{
     max-width:8em;
     flex:1;
-    color:#888;
-    font-style: italic;
+    color:#aaa;
 }
 
 div#comment-add-l2{

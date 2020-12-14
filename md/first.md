@@ -1,7 +1,6 @@
 title=수제 블로그 개발
 tags=블로그, 개발
 date=2020-12-6
-show=true
 ##blogen##
 
 # 발단
