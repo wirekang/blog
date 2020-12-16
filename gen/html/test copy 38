@@ -1,0 +1,30 @@
+<h1>Java</h1>
+
+<pre><code class="language-java">package main
+
+class Main{
+    public static void main(String[] args){
+        System.out.println(&quot;asdf&quot;);
+    }
+}
+</code></pre>
+
+<h1>Go</h1>
+
+<pre><code class="language-go">func main(){
+    fmt.Prinln(&quot;asdf&quot;)
+    os.Exit(0)
+}
+</code></pre>
+
+<h1>Javascript</h1>
+
+<pre><code class="language-javascript">function init(){
+  const td = document.getElementById('td');
+  td.innerHTML='asdf';
+}
+
+document.addEventListener(&quot;DOMContentLoaded&quot;,()=&gt;{
+  init();
+});
+</code></pre>

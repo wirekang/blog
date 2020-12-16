@@ -1,9 +1,9 @@
 {{ define "body" }}
-<div class ="list">
+<div id ="post-list">
 {{ if .IsFiltered }}
-    <p class="filter"><b> {{ .FilteredTag.Name }} </b> 태그가 포함된 글</p>
+    <p class="filter c-2"><b> {{ .FilteredTag.Name }} </b> 태그가 포함된 글</p>
 {{ else }}
-    <p class="filter">모든 글</p>
+    <p class="filter c-2">모든 글</p>
 {{ end }}
 
     {{ range .Posts }}

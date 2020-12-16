@@ -48,7 +48,7 @@
             <span class='comment-time'>${time}</span>
             </div> <div class='comment-l2'>
             <span class='comment-text'>${cmt.text}</span>
-            <a class="comment-delete nodeco" onclick='onDelete(${cmt.id})'>삭제</a>
+            <a class="comment-delete nodeco c-3" onclick='onDelete(${cmt.id})'>삭제</a>
             </div></div>`;
           })
         }
@@ -141,24 +141,24 @@
     </div>
     <div id="under">
         {{ range .Post.Tags }}
-            <a class="tag nodeco" href ="tag{{ .ID }}.html">#{{ .Name }}</a>
+            <a class="tag nodeco c-3" href ="tag{{ .ID }}.html">#{{ .Name }}</a>
         {{ end }}
-        <p id="date">{{ .Post.Time.Format "2006-01-02" }}</p>
+        <p id="date" class="c-3">{{ .Post.Time.Format "2006-01-02" }}</p>
     </div>
     <div id="post">
         <div id="toc"></div>
         {{ .HTML }}
     </div>
     <div id="comment">
-      <p class="filter">댓글</p>
+      <p class="filter c-2">댓글</p>
       <div id="comment-list"></div>
       <div id="comment-add">
         <div id="comment-add-l1">
-          <input type='text' id='comment-name' placeholder='이름'/>
-          <input type='text' id='comment-pass' placeholder="비밀번호"/>
+          <input type='text' id='comment-name' maxlength="20" placeholder='익명'/>
+          <input type='password' id='comment-pass' maxlength="20" placeholder="비밀번호"/>
         </div>
         <div id="comment-add-l2">
-          <textarea id='comment-text'></textarea>
+          <textarea id='comment-text' maxlength="400"></textarea>
           <input type='button' id='comment-submit' value='등록'/>
         </div>
         <div id="commnet-add-l3">
@@ -169,7 +169,7 @@
     </div>
 </div>
 <div class="related">
-    <p class="filter">관련된 글</p>
+    <p class="filter c-2">관련된 글</p>
     {{ range .RelatedPosts }}
         {{ template "post" .}}
     {{ end }}

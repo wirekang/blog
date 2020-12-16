@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="KR">
+<html lang="KR" class='dark'>
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVC469B1QW"></script>
@@ -30,30 +30,49 @@
 
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <style>{{ template "style" . }}</style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const mode = document.getElementById('mode');
+            const html = document.documentElement;
+            mode.addEventListener('click',()=>{
+                if (html.className=='dark'){
+                    html.className='light';
+                    mode.innerText='어둡게'
+                }else{
+                    html.className='dark';
+                    mode.innerText='밝게';
+                }
+            })
+        })
+    </script>
 </head>
 <body>
 <img src="{{ .Addr }}/logo.png" alt="logo" style="visibility: hidden; width:0; height:0;"/>
 <div id="container">
-    <div id="title">
-        <a class="nodeco" href="/">{{ .Title }}</a>
-    </div>
-
-    {{ if .InList }}
-    <div id="description">
-        {{ .Description }}
-    </div>
-    <a id="link-github" class="nodeco" href="https://github.com/wirekang">GitHub</a>
-
-        <div id="tags">
-            {{ range .Tags }}
-                <a class = "nodeco" href="tag{{ .ID }}.html">
-                    <span class="name">
-                        {{ .Name }}</span>
-                    <span class="count">({{ .Count }})</span>
-                </a>
-            {{ end }}
+    <div id="header">
+        <div id="title">
+            <a class="nodeco" href="/">{{ .Title }}</a>
         </div>
-    {{ end }}
+        <a class="nodeco" id="mode">밝게</a>
+        {{ if .InList }}
+        <div id="description">
+            {{ .Description }}
+        </div>
+        <a id="link-github" class="nodeco" href="https://github.com/wirekang">GitHub</a>
+
+            <div id="tags">
+                {{ range .Tags }}
+                    <a class = "nodeco" href="tag{{ .ID }}.html">
+                        <span class="name">
+                            {{ .Name }}</span>
+                        <span class="count">({{ .Count }})</span>
+                    </a>
+                {{ end }}
+            </div>
+        {{ end }}
+    </div>
+
 
     {{ template "body" .}}
     <div id="footer">
@@ -64,7 +83,7 @@
 </html>
 
 {{ define "post" }}
-    <div class="post-list" onclick="location.href='{{ .ID }}.html'">
+    <div class="post-block" onclick="location.href='{{ .ID }}.html'">
         <span class="title">{{ .Title }}</span>
         <span class="date">{{ .Time.Format "2006-01-02" }}</span>
     </div>

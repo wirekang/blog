@@ -9,6 +9,80 @@
     font-style: normal;
 }
 
+html.dark{
+    background-color: #121212;
+}
+
+html.light{
+    background-color: #ffffff;
+}
+
+html.dark div#header{
+    background-color: #121212;
+}
+
+html.light div#header{
+    background-color: #fff;
+}
+
+html.dark div,html.dark a,html.dark p,html.dark h1,html.dark h2,html.dark h3{
+    color:#ccc;
+}
+
+html.light div,html.light a,html.light p,html.light h1,html.light h2,html.light h3{
+    color: #333;
+}
+
+html.dark .c-2{
+    color:#999;
+}
+
+html.light .c-2{
+    color:#777;
+}
+
+html.dark .c-3{
+    color:#666;
+}
+
+html.light .c-3{
+    color: #888;
+}
+
+html.dark div#tags a{
+    border-color: #666;
+}
+
+html.dark div.post-block{
+    border-color: #666;
+}
+
+html.dark div#post h1,html.dark div#post h2{
+    border-color:#212730;
+}
+
+html.light div#post h1,html.light div#post h2{
+    border-color:#dadcdf;
+}
+
+html.dark a.nodeco:hover{
+    color:#88f;
+}
+
+html.light a.nodeco:hover{
+    color:#33c;
+}
+
+html.dark input, html.dark textarea{
+    background-color: #222;
+    color: #ddd;
+}
+
+html.dark div#alert{
+    background-color: darkred;
+    color: #ccc;
+}
+
 html{
     font-size: 18px;
     font-family: 'Nanum Gothic', sans-serif;
@@ -22,15 +96,15 @@ html{
 
 body{
     width:100%;
-    height:96%;
+    height:100%;
     max-width: 900px;
     padding: 0 10px;
-    margin: 0 auto;
-    background-color: #fdfdfb;
+    margin: 0;
 }
 
-div, a,p,h1,h2,h3{
-    color: #333;
+div{
+    margin:0;
+    padding:0;
 }
 
 #container{
@@ -41,50 +115,77 @@ div, a,p,h1,h2,h3{
     justify-content: flex-start;
 }
 
-div#title{
+div#header {
+    align-self: center;
+    {{ if .InSingle }}
+    width: 90vw;
+    {{ end }}
+    max-width: 900px;
+    position:fixed;
+    top:0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 8px 0;
+}
+
+div#header div#title{
     font-family: 'D2Coding';
     {{ if .InList }}
     font-size: 35px;
-    padding-bottom: 8px;
     {{ else }}
     font-size: 20px;
     {{ end }}
     text-align:center;
 }
 
-div#description{
+div#header a#mode{
+    position:absolute;
+    right:0;
+    top:8px;
+    cursor:pointer; 
+}
+
+div#header div#description{
     font-size: 16px;
     text-align:center;
     padding: 3px 0;
 
 }
 
-a#link-github{
+div#header a#link-github{
     font-size: 11px;
     text-align: center;
     padding-bottom: 16px;
 }
 
-div#tags{
-    font-size: 16px;
+div#header div#tags{
+    font-size: 14px;
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-self: flex-start;
 }
 
-div#tags a{
-    border: 1px solid #aaa;
-    padding: 2px;
+div#header div#tags a{
+    border-width: 1px;
+    border-style: solid;
+    padding: 3px;
+}
+
+div#post-list{
+    margin-top:150px;
 }
 
 p.filter{
     font-size: 20px;
-    color:#444;
     text-align: center;
 }
 
-div.post-list{
-    border: 1px solid #ccc;
+div.post-block{
+    border-width: 1px;
+    border-style: solid;
     cursor: pointer;
     font-size: 18px;
     padding: 2px;
@@ -92,11 +193,11 @@ div.post-list{
     margin-top:-1px;
 }
 
-div.post-list span.title{
+div.post-block span.title{
     float:left;   
 }
 
-div.post-list span.date{
+div.post-block span.date{
     float:right;
 }
 
@@ -113,16 +214,15 @@ div#single div#title{
 }
 
 div#under{
+    font-size: 13px;
 }
 
 div#under a.tag{
-    color: #666;
     float:right;
     padding-right: 0.3em;
 }
 
 div#under p#date{
-    color: #666;
 }
 
 
@@ -172,7 +272,8 @@ div#post h3{
 div#post h1,
 div#post h2 {
   padding-bottom: .3em;
-  border-bottom: 1px solid #dadcdf;
+  border-width: 1px;
+  border-style: solid;
 }
 
 code {
@@ -211,7 +312,6 @@ span.comment-text{
 }
 
 a.comment-delete{
-    color:#666;
     float:right;
 }
 
@@ -232,7 +332,6 @@ input#comment-name{
 input#comment-pass{
     max-width:8em;
     flex:1;
-    color:#aaa;
 }
 
 div#comment-add-l2{
@@ -252,23 +351,14 @@ input#comment-submit{
 }
 
 div#alert{
-    background-color: lightgoldenrodyellow;
     text-align: center;
     font-weight: bold;
-    color:darkred;
 }
 
 a.nodeco{
     text-decoration: none;
 }
 
-a.nodeco:hover{
-    color:#33d;
-}
-
-a.gray{
-    color: #777;
-}
 
 div#footer{
     margin-top: auto;
