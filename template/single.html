@@ -42,7 +42,7 @@
             const time=
             `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
             commentDiv.innerHTML+=
-            `<div class='comment-block'>
+            `<div class='comment-block boc-2'>
             <div class='comment-l1'>
             <span class='comment-name'>${cmt.name}</span>
             <span class='comment-time'>${time}</span>
@@ -154,12 +154,14 @@
       <div id="comment-list"></div>
       <div id="comment-add">
         <div id="comment-add-l1">
-          <input type='text' id='comment-name' maxlength="20" placeholder='익명'/>
-          <input type='password' id='comment-pass' maxlength="20" placeholder="비밀번호"/>
+          <input type='text' id='comment-name' maxlength="20" placeholder='익명'
+            class="boc-2 bac-3"/>
+          <input type='password' id='comment-pass' maxlength="20" 
+          placeholder="비밀번호" class="boc-2 bac-3"/>
         </div>
         <div id="comment-add-l2">
-          <textarea id='comment-text' maxlength="400"></textarea>
-          <input type='button' id='comment-submit' value='등록'/>
+          <textarea id='comment-text' maxlength="400" class="bac-3"></textarea>
+          <input type='button' id='comment-submit' value='등록' class="boc-2 bac-3"/>
         </div>
         <div id="commnet-add-l3">
           <div id="alert">

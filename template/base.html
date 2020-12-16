@@ -39,31 +39,36 @@
                 if (html.className=='dark'){
                     html.className='light';
                     mode.innerText='어둡게'
+                    localStorage['mode']='light';
                 }else{
                     html.className='dark';
                     mode.innerText='밝게';
+                    localStorage['mode']='dark';
                 }
             })
+            
+            if(localStorage['mode']==='light')
+                mode.click();
         })
     </script>
 </head>
 <body>
 <img src="{{ .Addr }}/logo.png" alt="logo" style="visibility: hidden; width:0; height:0;"/>
 <div id="container">
-    <div id="header">
+    <div id="header" class="bac-2">
         <div id="title">
             <a class="nodeco" href="/">{{ .Title }}</a>
         </div>
-        <a class="nodeco" id="mode">밝게</a>
+        <a class="nodeco c-3" id="mode">밝게</a>
         {{ if .InList }}
-        <div id="description">
+        <div id="description" class="c-2">
             {{ .Description }}
         </div>
-        <a id="link-github" class="nodeco" href="https://github.com/wirekang">GitHub</a>
+        <a id="link-github" class="nodeco c-2" href="https://github.com/wirekang">GitHub</a>
 
             <div id="tags">
                 {{ range .Tags }}
-                    <a class = "nodeco" href="tag{{ .ID }}.html">
+                    <a class = "nodeco boc-3" href="tag{{ .ID }}.html">
                         <span class="name">
                             {{ .Name }}</span>
                         <span class="count">({{ .Count }})</span>
@@ -83,7 +88,7 @@
 </html>
 
 {{ define "post" }}
-    <div class="post-block" onclick="location.href='{{ .ID }}.html'">
+    <div class="post-block boc-3" onclick="location.href='{{ .ID }}.html'">
         <span class="title">{{ .Title }}</span>
         <span class="date">{{ .Time.Format "2006-01-02" }}</span>
     </div>
