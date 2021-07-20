@@ -1,6 +1,7 @@
 baseURL = "https://npm.install.express"
 languageCode = "ko-KR"
 title = "npm.install.express"
+publishDir = "./wirekang.github.io/"
 
 [markup.tableOfContents]
 endLevel   = 6
