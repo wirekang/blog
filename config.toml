@@ -1,0 +1,14 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "sk2"
+
+[Params]
+startdate = "2021-07-20"
+summary = true
+toc = true
+
+[markup.tableOfContents]
+endLevel   = 6
+ordered    = false
+startLevel = 1
