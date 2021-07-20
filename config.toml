@@ -1,14 +1,14 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
-theme = "sk2"
-
-[Params]
-startdate = "2021-07-20"
-summary = true
-toc = true
+baseURL = "https://npm.install.express"
+languageCode = "ko-KR"
+title = "npm.install.express"
 
 [markup.tableOfContents]
 endLevel   = 6
 ordered    = false
 startLevel = 1
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"

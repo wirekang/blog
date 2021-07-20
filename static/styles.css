@@ -1,0 +1,188 @@
+@font-face {
+  font-family: "D2Coding";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-family: "D2Coding", monospace;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #fffffd;
+  color: #222;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+hr {
+  margin: 50px 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.border {
+  border: 1px solid #555;
+}
+
+.border-grey {
+  border: 1px solid #aaa;
+}
+
+.box {
+  margin: 20px;
+  padding: 5px;
+}
+
+.max-width {
+  width: 100%;
+}
+
+.no-deco {
+  text-decoration: none;
+}
+
+.black {
+  color: #222;
+}
+
+.grey {
+  color: #555;
+}
+
+.back-white {
+  background-color: #ffffff;
+}
+
+.font-xl {
+  font-size: 24px;
+}
+
+.font-l {
+  font-size: 20px;
+}
+
+.font-m {
+  font-size: 16px;
+}
+.font-s {
+  font-size: 12px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.margin-right {
+  margin-right: 18px;
+}
+
+.margin-top {
+  margin-top: 18px;
+}
+
+.margin-bottom-minus {
+  margin-bottom: -18px;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 600px;
+  max-width: 80vw;
+}
+
+/* pagination */
+.pagination {
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.pagination li {
+  display: block;
+}
+
+.pagination a {
+  color: #222;
+  text-decoration: none;
+}
+
+.pagination .disabled a {
+  color: #888;
+}
+
+.pagination .active a {
+  font-weight: bold;
+}
+
+.pagination span {
+  color: #222;
+  margin: 0 7px;
+}
+
+/* toc */
+
+#TableOfContents > ul {
+  margin: 0;
+}
+
+#TableOfContents > ul a {
+  color: #222;
+  text-decoration: none;
+  margin: 8px 0;
+}

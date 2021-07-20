@@ -1,0 +1,19 @@
+{{define "PostCard"}}
+  <a class="box border flex no-deco black back-white card" href="{{.RelPermalink}}">
+    <div class="flex-row space-between">
+      <span class="font-m bold">
+        {{.Title}}
+      </span>
+
+      {{with .Lastmod}}
+        <span class="font-s grey">
+          {{dateFormat "2006년 1월 2일" .}}
+        </span>
+      {{end}}
+    </div>
+    
+    <span class="font-s">
+      {{.Summary}}
+    </span>
+  </a>
+{{end}}

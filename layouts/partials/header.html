@@ -1,0 +1,14 @@
+<div class="flex-row space-between max-width">
+	<a class="no-deco black font-l bold" href="{{relLangURL ""}}">{{site.Title}}</a>
+
+	{{if site.Menus}}
+		<div class="flex-row">
+			{{$currentPage := .}}
+			{{range site.Menus.main}}
+				<a class="no-deco black bold" href="{{.URL}}">
+					{{.Name}}
+				</a>
+			{{end}}
+		</div>
+	{{end}}
+</div>

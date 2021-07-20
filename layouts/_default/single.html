@@ -1,0 +1,56 @@
+{{define "main"}}
+  {{with .Title}}
+    <div class="flex-row justify-center">
+      <p class="bold font-xl">{{.}}</p>
+    </div>
+  {{end}}
+
+    <div class="flex-row space-between">
+      <div class="flex-row wrap">
+        {{range (.GetTerms "tags")}}
+          <a class="no-deco grey bold margin-right" href="{{.RelPermalink}}">#{{.LinkTitle}}</a>
+        {{end}}
+      </div>
+
+      <div class="black">
+        {{with .Date}}
+          {{dateFormat "2006-01-02" .}}
+        {{end}}
+      </div>
+    </div>
+
+    {{if .Params.toc}}
+    <div class="border-grey box">
+      <span class="font-l">목차</span>
+      <toc>{{.TableOfContents}}</toc>
+    </div>
+    {{end}}
+
+
+  {{with .Content}}<content>{{.}}</content>{{end}}
+  <hr/>
+
+  {{if or .PrevInSection .NextInSection}}
+    <div class="flex align-center">
+        {{with .PrevInSection}}
+          <span class="margin-bottom-minus font-l">이전 글</span>
+          {{template "PostCard" .}}
+        {{end}}
+        {{with .NextInSection}}
+          <span class="margin-top margin-bottom-minus font-l">다음 글</span>
+          {{template "PostCard" .}}
+        {{end}}
+    </div>
+  {{end}}
+
+  {{$related := site.RegularPages.RelatedIndices . "tags" | first 5}} 
+
+  {{with $related}}
+    <div class="flex align-center">
+      <span class="margin-top margin-bottom-minus font-l">관련 글</span>
+        {{range .}}
+          {{template "PostCard" .}}
+        {{end}}
+    </div>
+  {{end}}
+{{end}}
