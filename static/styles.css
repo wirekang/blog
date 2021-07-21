@@ -128,7 +128,7 @@ hr {
 }
 
 .margin-bottom-minus {
-  margin-bottom: -10px;
+  margin-bottom: -8px;
 }
 
 .wrap {
@@ -138,6 +138,7 @@ hr {
 .card {
   width: 600px;
   max-width: 80vw;
+  height: 70px;
 }
 
 /* pagination */
