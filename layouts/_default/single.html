@@ -26,6 +26,12 @@
     </div>
     {{end}}
 
+  {{ with .Summary}}
+    <p class="italic margin-top">
+      {{.}}
+    </p>
+  {{end}}
+
 
   {{with .Content}}<content>{{.}}</content>{{end}}
   <hr/>

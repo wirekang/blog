@@ -119,6 +119,10 @@ hr {
   font-weight: bold;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .margin-right {
   margin-right: 18px;
 }
@@ -190,4 +194,30 @@ hr {
   color: #222;
   text-decoration: none;
   margin: 8px 0;
+}
+
+img {
+  object-fit: contain;
+  display: block;
+  max-width: min(800px, 100%);
+  max-height: min(70vh, 500px);
+  margin: 30px auto;
+  padding: 2px;
+  box-shadow: 1px 1px 3px #222;
+}
+
+img[alt="half"] {
+  width: 46%;
+  display: inline-block;
+  margin-left: 2%;
+  margin-right: 0;
+  padding: 0;
+}
+
+p.sub {
+  margin-top: -22px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 14px;
+  color: #444;
 }
