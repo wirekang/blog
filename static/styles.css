@@ -127,6 +127,10 @@ hr {
   margin-top: 18px;
 }
 
+.margin-bottom {
+  margin-bottom: 18px;
+}
+
 .margin-bottom-minus {
   margin-bottom: -8px;
 }
