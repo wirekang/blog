@@ -221,3 +221,18 @@ p.sub {
   font-size: 14px;
   color: #444;
 }
+
+th {
+  min-width: 20px;
+  text-align: right;
+}
+
+td {
+  min-width: 20px;
+  border: 1px solid #ccc;
+  text-align: right;
+}
+
+table {
+  margin: 10px 0;
+}
