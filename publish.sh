@@ -5,7 +5,6 @@ dirPath=$(dirname $fullPath)
 cd $dirPath
 hugo
 
-cd ./wirekang.github.io
-git add .
+git add ./public
 git commit -m "auto commit $(date)"
 git push origin master
