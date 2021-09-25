@@ -1,7 +1,7 @@
 baseURL = "https://npm.install.express"
 languageCode = "ko-KR"
 title = "npm.install.express"
-publishDir = "./wirekang.github.io/"
+publishDir = "./docs/"
 
 [markup.goldmark.renderer]
 unsafe= true

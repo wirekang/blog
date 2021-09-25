@@ -227,12 +227,12 @@ th {
   text-align: right;
 }
 
-td {
-  min-width: 20px;
-  border: 1px solid #ccc;
-  text-align: right;
+table {
+  background-color: #fdfdfd;
+  margin-top: -0.8rem;
 }
 
-table {
-  margin: 10px 0;
+td,
+th {
+  border: 1px solid #eee;
 }
