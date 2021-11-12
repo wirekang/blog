@@ -1,7 +1,7 @@
 ---
 title: "고기를 자주 먹기 위한 방법"
 date: 2021-09-25T17:16:19+09:00
-draft: false 
+draft:  true
 summary: "맛있는 고기를 문제 없이 오랫동안 먹으려면 계획이 필요하다."
 tags: [건강, 요리]
 toc: true
