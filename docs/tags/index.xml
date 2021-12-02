@@ -5,25 +5,6 @@
     <link>https://npm.install.express/tags/</link>
     <description>Recent content in Tags on npm.install.express</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko-KR</language>
-    <lastBuildDate>Wed, 21 Jul 2021 12:38:03 +0900</lastBuildDate><atom:link href="https://npm.install.express/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>건강</title>
-      <link>https://npm.install.express/tags/%EA%B1%B4%EA%B0%95/</link>
-      <pubDate>Wed, 21 Jul 2021 12:38:03 +0900</pubDate>
-      
-      <guid>https://npm.install.express/tags/%EA%B1%B4%EA%B0%95/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>후기</title>
-      <link>https://npm.install.express/tags/%ED%9B%84%EA%B8%B0/</link>
-      <pubDate>Wed, 21 Jul 2021 12:38:03 +0900</pubDate>
-      
-      <guid>https://npm.install.express/tags/%ED%9B%84%EA%B8%B0/</guid>
-      <description></description>
-    </item>
-    
+    <language>ko-KR</language><atom:link href="https://npm.install.express/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

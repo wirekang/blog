@@ -1,7 +1,7 @@
 ---
 title: "인체공학 개발환경 세팅기"
 date: 2021-07-21T12:38:03+09:00
-draft: false
+draft: true
 summary: "개발환경이라고 하면 eclipse나 vscode같은 IDE를 떠올리지만 그것보다 더 중요한 현실의 개발환경을 가꾸어보자."
 tags: [건강, 후기]
 toc: true

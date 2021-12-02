@@ -5,17 +5,7 @@
     <link>https://npm.install.express/</link>
     <description>Recent content on npm.install.express</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko-KR</language>
-    <lastBuildDate>Wed, 21 Jul 2021 12:38:03 +0900</lastBuildDate><atom:link href="https://npm.install.express/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>인체공학 개발환경 세팅기</title>
-      <link>https://npm.install.express/posts/de/</link>
-      <pubDate>Wed, 21 Jul 2021 12:38:03 +0900</pubDate>
-      
-      <guid>https://npm.install.express/posts/de/</guid>
-      <description>개발환경이라고 하면 eclipse나 vscode같은 IDE를 떠올리지만 그것보다 더 중요한 현실의 개발환경을 가꾸어보자.</description>
-    </item>
-    
+    <language>ko-KR</language><atom:link href="https://npm.install.express/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
       <link>https://npm.install.express/about/</link>
